@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Triangle Project Code.
 
 # Triangle analyzes the lengths of the sides of a triangle
@@ -15,6 +17,19 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  if a <= 0 || b <= 0 || c <= 0
+    raise TriangleError
+  elsif (a + b) < c
+    raise TriangleError
+  elsif (a + c) == b
+    raise TriangleError
+  elsif a == b && b == c
+    :equilateral
+  elsif a == b || c == b || c == a || b == a
+    :isosceles
+  else
+    :scalene
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
